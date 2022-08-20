@@ -11,16 +11,16 @@
 
 # 效果展示
 首页
-![首页](https://gitee.com/CQGuHua/myblog/blob/master/image/1.png)
+![首页](image/1.png)
 博客
-![博客](https://gitee.com/CQGuHua/myblog/blob/master/image/2.png)
+![博客](image/2.png)
 随笔
-![随笔](https://gitee.com/CQGuHua/myblog/blob/master/image/3.png)
+![随笔](image/3.png)
 留言
-![留言](https://gitee.com/CQGuHua/myblog/blob/master/image/4.png)
+![留言](image/4.png)
 归档
-![归档](https://gitee.com/CQGuHua/myblog/blob/master/image/5.png)
+![归档](image/5.png)
 关于
-![关于](https://gitee.com/CQGuHua/myblog/blob/master/image/6.png)
+![关于](image/6.png)
 后台管理（有多重操作，包括发布修改博客，随笔，发布项目，新增修改fl、标签，用户管理等）
-![后台管理](https://gitee.com/CQGuHua/myblog/blob/master/image/8TMAK%5B318XDJPT)%25@99CZLM.png)
+![后台管理](image/7.png)
