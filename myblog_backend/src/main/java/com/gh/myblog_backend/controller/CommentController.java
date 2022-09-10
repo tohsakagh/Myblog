@@ -60,7 +60,7 @@ public class CommentController {
         if (projectId != null){
             comment.setProjectId(projectId);
         }
-        if ("1".equals(user.getType())){
+        if ("0".equals(user.getType())){
             comment.setAdminComment(0);
         }
         if (!"-1".equals(parentId)){

@@ -120,7 +120,7 @@ public class BlogController {
             }
         }
         fullBlog.setComments(commentList);
-        return new Result(true, StatusCode.OK, "获取博客列表成功", fullBlog);
+        return new Result(true, StatusCode.OK, "获取博客成功", fullBlog);
     }
 }
 

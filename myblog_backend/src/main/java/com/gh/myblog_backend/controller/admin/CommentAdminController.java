@@ -1,4 +1,4 @@
-package com.gh.myblog_backend.controller.theAdminOfMyBlogGh;
+package com.gh.myblog_backend.controller.admin;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

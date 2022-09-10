@@ -1,4 +1,4 @@
-package com.gh.myblog_backend.controller.theAdminOfMyBlogGh;
+package com.gh.myblog_backend.controller.admin;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;

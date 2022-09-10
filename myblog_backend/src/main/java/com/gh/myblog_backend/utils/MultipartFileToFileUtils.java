@@ -19,7 +19,7 @@ public class MultipartFileToFileUtils {
      * @throws Exception
      */
     public static File multipartFileToFile(MultipartFile multipartFile ) throws Exception {
-        String filePath = "D:/temp/" + UUID.randomUUID().toString();
+        String filePath = "/project/myblog/temp/" + UUID.randomUUID().toString();
         File targetFile = new File(filePath);
         if (!targetFile.exists()) {
             targetFile.mkdirs();

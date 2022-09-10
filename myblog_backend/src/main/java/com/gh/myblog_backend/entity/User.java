@@ -47,7 +47,7 @@ public class User implements Serializable {
     @ApiModelProperty(value = "密码")
     private String password;
 
-    @ApiModelProperty(value = "用户类型,1为管理员,0为普通用户")
+    @ApiModelProperty(value = "用户类型,0为管理员,1为普通用户")
     private String type;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)

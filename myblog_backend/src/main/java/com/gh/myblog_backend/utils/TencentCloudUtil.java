@@ -26,12 +26,12 @@ public class TencentCloudUtil {
     private static COSClient init() {
         // 1 初始化用户身份信息（secretId, secretKey）。
         // SECRETID和SECRETKEY请登录访问管理控制台 https://console.cloud.tencent.com/cam/capi 进行查看和管理
-        String secretId = "your secretId";
-        String secretKey = "your secretKey";
+        String secretId = "xxxxxxxx";
+        String secretKey = "xxxxxxxx";
         COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
         // 2 设置 bucket 的地域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
         // clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分。
-        Region region = new Region("ap-chongqing");
+        Region region = new Region("xxxxxxxx");
         ClientConfig clientConfig = new ClientConfig(region);
         // 这里建议设置使用 https 协议
         // 从 5.6.54 版本开始，默认使用了 https
@@ -47,7 +47,7 @@ public class TencentCloudUtil {
         COSClient cosClient = init();
         try {
             String originalFilename = file.getOriginalFilename();
-            String bucketName = "your bucketName";
+            String bucketName = "xxxxxxxx";
             //按日期对文件分类
             //获取打当前日期
             String datePath = new DateTime().toString("yyyy_MM_dd_HH_mm_ss");
@@ -73,7 +73,7 @@ public class TencentCloudUtil {
             return;
         }
         COSClient client = init();
-        String bucketName = "myblog-1313287673";
+        String bucketName = "xxxxxxxxxx";
         String key = "myblog/" + path + "/info/"  + filename;
         System.out.println(key);
         client.deleteObject(bucketName, key);

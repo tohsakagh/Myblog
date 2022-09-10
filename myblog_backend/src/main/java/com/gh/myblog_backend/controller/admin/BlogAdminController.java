@@ -1,4 +1,4 @@
-package com.gh.myblog_backend.controller.theAdminOfMyBlogGh;
+package com.gh.myblog_backend.controller.admin;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -115,6 +115,13 @@ public class BlogAdminController {
         return new Result(true, StatusCode.OK, "获取博客列表成功", map);
     }
 
+    @GetMapping("getBlog/{id}")
+    @ApiOperation("获取博客")
+    public Result getBlog(@PathVariable String id){
+        Blog blog = blogService.getById(id);
+        return new Result<>(true, 200, "获取博客成功", blog);
+    }
+
     @PostMapping("updateBlog")
     @ApiOperation(value = "更新blog")
     public Result updateBlog(@RequestBody Map<String, Blog> para) {
@@ -141,7 +148,6 @@ public class BlogAdminController {
     @ApiOperation(value = "保存博客")
     public Result saveBlog(@RequestBody Map<String, FullBlog> params) {
         FullBlog fullBlog = params.get("blog");
-        System.out.println("*******************************************" + fullBlog.toString());
         blogService.saveFullBlog(fullBlog);
         QueryWrapper<Blog> wrapper = new QueryWrapper<>();
         wrapper.eq("title", fullBlog.getTitle());
