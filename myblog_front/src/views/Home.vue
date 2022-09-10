@@ -41,17 +41,17 @@ export default {
   data() {
     return {
       menulist: [
-        {id: 0, path: '/theAdminOfMyBlogGh/index', authName: '后台首页'},
-        {id: 1, path: '/theAdminOfMyBlogGh/blogs', authName: '博客管理'},
-        {id: 2, path: '/theAdminOfMyBlogGh/users', authName: '用户管理'},
-        {id: 3, path: '/theAdminOfMyBlogGh/blog-input', authName: '撰写博客'},
-        {id: 4, path: '/theAdminOfMyBlogGh/types', authName: '分类管理'},
-        {id: 5, path: '/theAdminOfMyBlogGh/tags', authName: '标签管理'},
-        {id: 6, path: '/theAdminOfMyBlogGh/comments', authName: '评论管理'},
-        {id: 7, path: '/theAdminOfMyBlogGh/essays', authName: '随笔管理'},
-        {id: 8, path: '/theAdminOfMyBlogGh/projects', authName: '项目管理'},
-        {id: 9, path: '/theAdminOfMyBlogGh/administrator', authName: '个人中心'},
-        {id: 10, path: '/theAdminOfMyBlogGh/pictures', authName: '图片管理'},
+        {id: 0, path: '/admin/index', authName: '后台首页'},
+        {id: 1, path: '/admin/blogs', authName: '博客管理'},
+        {id: 2, path: '/admin/users', authName: '用户管理'},
+        {id: 3, path: '/admin/blog-input', authName: '撰写博客'},
+        {id: 4, path: '/admin/types', authName: '分类管理'},
+        {id: 5, path: '/admin/tags', authName: '标签管理'},
+        {id: 6, path: '/admin/comments', authName: '评论管理'},
+        {id: 7, path: '/admin/essays', authName: '随笔管理'},
+        {id: 8, path: '/admin/projects', authName: '项目管理'},
+        {id: 9, path: '/admin/administrator', authName: '个人中心'},
+        {id: 10, path: '/admin/pictures', authName: '图片管理'},
       ],
       iconsObj: {
         '0': 'iconfont icon-menu_home',

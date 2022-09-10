@@ -8,7 +8,6 @@ import axios from 'axios'
 import {VueJsonp} from 'vue-jsonp'
 import NProgress from 'nprogress'
 import './assets/fonts/iconfont.css'
-import './assets/fonts/font_another/iconfont.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/animate.css'
 import '@/assets/css/typo.css';
@@ -28,11 +27,11 @@ Vue.prototype.$jsonp = VueJsonp
 
 
 const blog = axios.create({ // 博客后台api地址
-    baseURL: 'http://localhost:8090'
+    baseURL: 'https://ljringh.site/api'
 })
 
 const picture = axios.create({ // 图片服务器api地址
-    baseURL: 'http://localhost:8090//tencentcloud/'
+    baseURL: 'https://ljringh.site/api/tencentcloud/'
 })
 
 blog.interceptors.request.use(config => {

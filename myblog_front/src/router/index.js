@@ -13,16 +13,16 @@ const Project = () => import(/* webpackChunkName: "Welcome" */ '../components/Pr
 const TimeStamp = () => import(/* webpackChunkName: "Welcome" */ '../components/TimeStamp')
 
 const Home = () => import(/* webpackChunkName: "Home" */ '@/views/Home')
-const AdminIndex = () => import(/* webpackChunkName: "Home" */ '@/components/theAdminOfMyBlogGh/AdminIndex')
-const Blogs = () => import(/* webpackChunkName: "Blog_Home" */ '../components/theAdminOfMyBlogGh/Blogs')
-const Blog_input = () => import(/* webpackChunkName: "Blog_Home" */ '../components/theAdminOfMyBlogGh/Blog_input')
-const Essays = () => import(/* webpackChunkName: "Essay" */ '../components/theAdminOfMyBlogGh/Essays')
-const Tags = () => import(/* webpackChunkName: "Tags" */ '../components/theAdminOfMyBlogGh/Tags')
-const Types = () => import(/* webpackChunkName: "Types" */ '../components/theAdminOfMyBlogGh/Types')
-const Administrator = () => import(/* webpackChunkName: "theAdminOfMyBlogGh" */ '../components/theAdminOfMyBlogGh/Administrator')
-const Comments = () => import(/* webpackChunkName: "Comment" */ '../components/theAdminOfMyBlogGh/Comments')
-const Users = () => import(/* webpackChunkName: "User" */ '../components/theAdminOfMyBlogGh/Users')
-const Projects = () => import(/* webpackChunkName: "Projects" */ '../components/theAdminOfMyBlogGh/Projects')
+const AdminIndex = () => import(/* webpackChunkName: "Home" */ '@/components/admin/AdminIndex')
+const Blogs = () => import(/* webpackChunkName: "Blog_Home" */ '../components/admin/Blogs')
+const Blog_input = () => import(/* webpackChunkName: "Blog_Home" */ '../components/admin/Blog_input')
+const Essays = () => import(/* webpackChunkName: "Essay" */ '../components/admin/Essays')
+const Tags = () => import(/* webpackChunkName: "Tags" */ '../components/admin/Tags')
+const Types = () => import(/* webpackChunkName: "Types" */ '../components/admin/Types')
+const Administrator = () => import(/* webpackChunkName: "admin" */ '../components/admin/Administrator')
+const Comments = () => import(/* webpackChunkName: "Comment" */ '../components/admin/Comments')
+const Users = () => import(/* webpackChunkName: "User" */ '../components/admin/Users')
+const Projects = () => import(/* webpackChunkName: "Projects" */ '../components/admin/Projects')
 
 const Error = () => import(/* webpackChunkName: "Error" */ '@/components/Error')
 
@@ -50,7 +50,7 @@ const routes = [
         ]
     },
     {
-        path: '/theAdminOfMyBlogGh',
+        path: '/admin',
         component: Home,
         //挂载路由导航守卫
         beforeEnter: (to, from, next) => {
@@ -69,18 +69,18 @@ const routes = [
             }
             next()
         },
-        redirect: '/theAdminOfMyBlogGh/index',
+        redirect: '/admin/index',
         children:[
-            {path: '/theAdminOfMyBlogGh/index', component: AdminIndex},
-            {path: '/theAdminOfMyBlogGh/blogs', component: Blogs},
-            {path: '/theAdminOfMyBlogGh/blog-input', component: Blog_input},
-            {path: '/theAdminOfMyBlogGh/essays', component: Essays},
-            {path: '/theAdminOfMyBlogGh/types', component: Types},
-            {path: '/theAdminOfMyBlogGh/tags', component: Tags},
-            {path: '/theAdminOfMyBlogGh/Administrator', component: Administrator},
-            {path: '/theAdminOfMyBlogGh/projects', component: Projects},
-            {path: '/theAdminOfMyBlogGh/comments', component: Comments},
-            {path: '/theAdminOfMyBlogGh/users', component: Users},
+            {path: '/admin/index', component: AdminIndex},
+            {path: '/admin/blogs', component: Blogs},
+            {path: '/admin/blog-input', component: Blog_input},
+            {path: '/admin/essays', component: Essays},
+            {path: '/admin/types', component: Types},
+            {path: '/admin/tags', component: Tags},
+            {path: '/admin/Administrator', component: Administrator},
+            {path: '/admin/projects', component: Projects},
+            {path: '/admin/comments', component: Comments},
+            {path: '/admin/users', component: Users},
         ]
     }
 ]

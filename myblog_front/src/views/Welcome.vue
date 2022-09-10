@@ -85,7 +85,6 @@ export default {
   opacity: 0.8;
   justify-content: center;
   align-items: center;
-  /*background: url('../assets/about/rocket.png') no-repeat;*/
 }
 #back-top:hover span{
   opacity: 1;
