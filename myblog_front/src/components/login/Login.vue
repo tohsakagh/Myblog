@@ -20,6 +20,7 @@
 
 <script>
 import {mapState} from 'vuex'
+import cookie from 'js-cookie'
 
 export default {
     data() {

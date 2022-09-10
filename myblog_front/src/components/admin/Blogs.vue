@@ -2,7 +2,7 @@
   <div>
     <!--    面包屑导航区-->
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/theAdminOfMyBlogGh' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/admin' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>博客管理</el-breadcrumb-item>
     </el-breadcrumb>
     <el-card class="card1" shadow="never" style="text-align: left">
@@ -86,7 +86,7 @@
                 icon="el-icon-edit"
                 size="mini"
                 circle
-                @click="editBlogByid(scope.row)"
+                @click="editBlogByid(scope.row.id)"
             ></el-button>
             <!--            删除按钮-->
             <el-button
@@ -123,14 +123,14 @@
           <el-button type="primary" @click="changeTypeSubmit">提交修改</el-button>
         </div>
       </el-dialog>
-      <el-dialog class="pic_dialog" title="修改文章首图" center :visible.sync="editPicDialogFormVisible"
+      <el-dialog class="pic_dialog" title="修改文章封面" center :visible.sync="editPicDialogFormVisible"
                  style="width: 800px;margin: 0 auto">
         <el-form ref="editPicFormRef"
                  class="edit_pic_form">
           <el-form-item style="text-align: center">
             <el-upload
                 ref="upload"
-                action="http://localhost:8090/tencentcloud/upload/blog"
+                action="https://ljringh.site/api/tencentcloud/upload/blog"
                 list-type="picture-card"
                 :limit="1"
                 :on-preview="handlePictureCardPreview"
@@ -298,12 +298,8 @@ export default {
       this.getBlogList()
     },
     // 编辑博客
-    editBlogByid(blog) {
-      // console.log(blog)
-      this.$router.push({
-        path: "/theAdminOfMyBlogGh/blog-input",
-        query: {blog: JSON.stringify(blog)}
-      })
+    editBlogByid(id) {
+      this.$router.push({path: "/admin/blog-input", query: {id: id}})
     },
     // 得到所有的分类
     async getFullTypeList() {

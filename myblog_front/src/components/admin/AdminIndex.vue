@@ -80,7 +80,7 @@ import VisitorMap from "./charts/VisitorMap";
 
 export default {
   components: {
-    VisitorMap, BlogChart, TagChart, TypeChart,RecentBlogList, CommentList, BoxCard
+    /*VisitorMap,*/ BlogChart, TagChart, TypeChart,RecentBlogList, CommentList, BoxCard
   },
   data() {
     return {

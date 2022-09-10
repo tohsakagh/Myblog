@@ -18,7 +18,7 @@
         <el-upload
             class="avatar-uploader"
             ref="upload"
-            action="http://localhost:8090/tencentcloud/upload/user"
+            action="https://ljringh.site/api/tencentcloud/upload/user"
             :limit="1"
             :show-file-list="false"
             :on-remove="handleRemove"

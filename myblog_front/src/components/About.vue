@@ -2,7 +2,7 @@
   <div class="box">
     <aside class="animate__animated animate__bounceInLeft sidebar">
       <div class="avatar">
-        <img src="https://myblog-1313287673.cos.ap-chongqing.myqcloud.com/myblog/about/about_avator.png" title="Hikari">
+        <img src="https://myblog-1313287673.cos.ap-chongqing.myqcloud.com/myblog/about/about_avator.png" title="孤桦">
       </div>
       <nav class="nav">
         <a v-for="intro in introduceList" @click="showSection(intro.name)" :key="intro.id"><i :class="intro.icon" style="margin-right: 10px"></i> {{intro.title}}</a>
@@ -11,30 +11,30 @@
     <main>
       <section class="animate__animated animate__fadeInRight" v-if="showSectionId === '#info'" id="info">
         <div class="wrap">
-          <h2 class="title"><i class="iconfont icon-gerenzhongxin1"></i> 个人资料</h2>
+          <h2 class="title"><i class="iconfont icon-gerenziliao"></i> 个人资料</h2>
           <el-row :gutter="20" class="row">
             <el-col :sm="8" :xs="24" class="col-l-4">
-              <p><i class="iconfont icon-name" style="margin-right: 5px"></i>姓名：李进</p>
-              <p><i class="iconfont icon-sex" style="margin-right: 5px"></i>性别：男</p>
-              <p><i class="iconfont icon-nianling" style="margin-right: 5px"></i>年龄：21</p>
-              <p><i class="iconfont icon-xueli" style="margin-right: 5px"></i>学历：本科</p>
-              <p><i class="iconfont icon-qq1" style="margin-right: 5px"></i>QQ：2277299512</p>
-              <p><i class="iconfont icon-shouye" style="margin-right: 5px"></i>血型：A型</p>
+              <p><i class="iconfont icon-xingming" style="margin-right: 5px"></i>姓名：李进</p>
+              <p><i class="iconfont icon-gender" style="margin-right: 5px"></i>性别：男</p>
+              <p><i class="iconfont icon-nianling1" style="margin-right: 5px"></i>年龄：21</p>
+              <p><i class="iconfont icon-xueli1" style="margin-right: 5px"></i>学历：本科</p>
+              <p><i class="iconfont icon-QQ" style="margin-right: 5px"></i>QQ：2277299512</p>
+              <p><i class="iconfont icon-xiexing" style="margin-right: 5px"></i>血型：A型</p>
             </el-col>
             <el-col :sm="16" :xs="24" class="col-l-4">
-              <p><i class="iconfont icon-nickname" style="margin-right: 5px"></i>昵称：孤桦</p>
-              <p><i class="iconfont icon-chushengriqi" style="margin-right: 5px"></i>出生日期：2001-05-18</p>
-              <p><i class="iconfont icon-xuexiao1" style="margin-right: 5px"></i>学校：重庆邮电大学大学</p>
-              <p><i class="iconfont icon-zhuanye1" style="margin-right: 5px"></i>专业：物联网工程</p>
+              <p><i class="iconfont icon-xingmingyonghumingnicheng" style="margin-right: 5px"></i>昵称：孤桦</p>
+              <p><i class="iconfont icon-riqi" style="margin-right: 5px"></i>出生日期：2001-05-18</p>
+              <p><i class="iconfont icon-xuexiao" style="margin-right: 5px"></i>学校：重庆邮电大学</p>
+              <p><i class="iconfont icon-zhuanye" style="margin-right: 5px"></i>专业：物联网工程</p>
               <p><i class="iconfont icon-weixin" style="margin-right: 5px"></i>微信：ljmyblogrin</p>
-              <p><i class="iconfont icon-email" style="margin-right: 5px"></i>邮箱：<a href="mailto:2569757226@qq.com">2277299512@qq.com</a></p>
+              <p><i class="iconfont icon-youxiang" style="margin-right: 5px"></i>邮箱：<a href="mailto:2569757226@qq.com">2277299512@qq.com</a></p>
             </el-col>
           </el-row>
         </div>
       </section>
       <section class="animate__animated animate__fadeInRight" v-show="showSectionId === '#skills'" id="skills">
         <div class="wrap">
-          <h2 class="title"><i class="iconfont icon-zhuanye"></i> 掌握的技能</h2>
+          <h2 class="title"><i class="iconfont icon-jineng"></i> 掌握的技能</h2>
           <el-row :gutter="40" class="row scrollable">
             <el-col :sm="8" :xs="24" class="center-fixed">
               <div class="skills-icon">
@@ -56,7 +56,7 @@
             </el-col>
             <el-col :sm="8" :xs="24" class="center-fixed">
               <div class="skills-icon">
-                <i class="iconfont icon-MySQL"></i>
+                <i class="iconfont icon-MySQL-icon-02"></i>
               </div>
               <div class="skills-title">
                 <h3>MySQL</h3>
@@ -65,7 +65,7 @@
             </el-col>
             <el-col :sm="8" :xs="24" class="center-fixed">
               <div class="skills-icon">
-                <i class="iconfont icon-spring"></i>
+                <i class="iconfont icon-bxl-spring-boot"></i>
               </div>
               <div class="skills-title">
                 <h3>Spring</h3>
@@ -95,7 +95,7 @@
       </section>
       <section class="animate__animated animate__fadeInRight" v-show="showSectionId === '#works'" id="works">
         <div class="wrap">
-          <h2 class="title"><i class="iconfont icon-zuopin1"></i>个人作品</h2>
+          <h2 class="title"><i class="iconfont icon-zuopin"></i>个人作品</h2>
           <el-row :gutter="30">
             <el-col :xs="24" :sm="12" :lg="8" v-for="work in workList" :key="work.id">
               <div class="works-item">
@@ -127,7 +127,7 @@
       </section>
       <section class="animate__animated animate__fadeInRight" v-show="showSectionId === '#summary'" id="summary">
         <div class="wrap">
-          <h2 class="title"><i class="iconfont icon-ziwopingjia"></i>自我评价</h2>
+          <h2 class="title"><i class="iconfont icon-pingjia"></i>自我评价</h2>
           <div class="row">
             <ul>
               <li>一个对一切未知的事物都会抱有好奇心的人</li>
@@ -152,13 +152,13 @@ export default {
           id: 0,
           title: '资料',
           name: '#info',
-          icon:'iconfont icon-zhuanye1'
+          icon:'iconfont icon-gerenziliao'
         },
         {
           id: 1,
           title: '技能',
           name: '#skills',
-          icon:'iconfont icon-jinengliang-xian'
+          icon:'iconfont icon-jineng'
         },
         {
           id: 2,
@@ -176,7 +176,7 @@ export default {
           id: 4,
           title: '评价',
           name: '#summary',
-          icon:'iconfont icon-ziwopingjia'
+          icon:'iconfont icon-pingjia'
         },
       ],
       workList:[

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { marked }from 'marked';
+
 export default {
     data() {
         return {
@@ -31,7 +31,6 @@ export default {
                 })
                 this.essayList.forEach( (essay) => {
                     // console.log(essay.content)
-                    essay.content = marked(essay.content)
                     essay.borderColor = essay.color.split(",")[0]+','+essay.color.split(",")[1]+ ','+essay.color.split(",")[2]+')'
                     essay.contentColor = essay.color.split(",")[0]+','+essay.color.split(",")[1]+ ','+essay.color.split(",")[2]+',0.1)'
                 } )

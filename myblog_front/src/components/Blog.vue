@@ -3,7 +3,7 @@
     <el-card style="background-color: rgba(255, 255, 255,1)" class="first-card">
       <div slot="header" class="total blog-info">
         <div class="user-info">
-          <el-avatar size="small" src="https://myblog-1313287673.cos.ap-chongqing.myqcloud.com/07.jpg"></el-avatar>
+          <el-avatar size="small" src="https://myblog-1313287673.cos.ap-chongqing.myqcloud.com/myblog/user/admin.jpg"></el-avatar>
           <a href="#" class="header">{{blog.author}}</a>
         </div>
         <div class="blog-date">
@@ -15,7 +15,6 @@
           <span>{{blog.views}}</span>
         </div>
       </div>
-      <el-image class="blog-pic" :src="blog.cover"></el-image>
       <hr/>
       <h2 class="blog-title header">{{blog.title}}
         <el-tag effect="plain" type="warning" style="font-weight: bold; font-size: small; margin-left: 20px">
@@ -58,7 +57,7 @@
       <div class="author">
         <ul>
           <li>作者 {{blog.author}}</li>
-          <li>最后编辑时间 {{blog.createTime | dataFormat4}}</li>
+          <li>最后编辑时间 {{blog.updateTime | dataFormat4}}</li>
         </ul>
       </div>
       <el-card shadow="never" class="comments">

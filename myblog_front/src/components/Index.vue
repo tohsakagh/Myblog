@@ -8,8 +8,7 @@
             <div class="border"></div>
           </h1>
 
-          <h2 class="intro">{{ intro }}</h2>
-
+          <h2 class="intro">{{intro}}</h2>
         </el-card>
       </el-col>
     </el-row>
@@ -21,26 +20,27 @@
 export default {
   data() {
     return {
-      intro: '',
-      value: new Date(),
+
+      intro:'',
       timer: null,
       start: false,
+
     }
   },
   mounted() {
     let str = '这是我的个人博客、会分享关于编程，开发以及其他方面的一些内容，希望可以对您有所帮助...';
     let idx = 0;
     let that = this
-    let timer = setTimeout(function fn() {
+    let timer = setTimeout( function fn() {
       // console.log(this.intro)
-      that.intro = that.intro + str.substring(idx, idx + 1)
+      that.intro = that.intro+ str.substring(idx,idx+1)
       idx++
-      if (idx > str.length) {
+      if (idx>str.length){
         that.intro = ''
         idx = 0
       }
-      setTimeout(fn, 200)
-    }, 2000)
+      setTimeout(fn,200)
+    },2000)
 
   },
   methods: {
@@ -54,6 +54,7 @@ export default {
         });
       })
     },
+
   },
 }
 </script>
@@ -67,7 +68,6 @@ body {
 
 .welcome {
   background-color: rgba(0, 0, 0, 0.1);
-  background-size: cover;
   border: none;
   height: 90%;
   position: relative;
@@ -90,7 +90,8 @@ body {
     height: 100px;
     line-height: 100px;
     box-shadow: inset 0 0 0 1px white;
-    margin: 80px auto 40px;
+    margin: 40px auto;
+    margin-top: 80px;
     color: white;
     text-align: center;
     font-size: 50px;
@@ -133,36 +134,25 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .blog-date {
-    display: none;
+@keyframes clipMe {
+
+  0%,
+  100% {
+    clip: rect(0px, 806px, 6px, 0px);
   }
 
-  .welcome {
-    width: 100%;
-
-    .border {
-      display: none;
-    }
-
-    .tit {
-      font-size: 2rem;
-      width: 100%;
-      line-height: 50px;
-      letter-spacing: 2px;
-      height: auto;
-    }
-
-    .intro {
-      font-size: 1rem;
-      line-height: 30px;
-    }
+  25% {
+    clip: rect(0px, 6px, 112px, 0px);
   }
 
-  .el-pagination {
-    width: 100%;
+  50% {
+    clip: rect(112px, 812px, 112px, 0px);
   }
 
+  75% {
+    clip: rect(0px, 812px, 112px, 806px);
+  }
 }
+
 
 </style>

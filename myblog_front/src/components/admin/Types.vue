@@ -2,7 +2,7 @@
   <div>
     <!--    面包屑导航区-->
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/theAdminOfMyBlogGh' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/admin' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>分类管理</el-breadcrumb-item>
     </el-breadcrumb>
     <el-card shadow="never">
@@ -49,7 +49,7 @@
         <el-form-item label="封面图片">
           <el-upload
               ref="upload"
-              action="http://localhost:8090//tencentcloud/upload/type"
+              action="https://ljringh.site/api//tencentcloud/upload/type"
               list-type="picture-card"
               :limit="1"
               :file-list="fileList"

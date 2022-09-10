@@ -5,7 +5,7 @@
             <div class="comment-title">
                 <a class="comment-author">
                     <span>{{rp.nickname}}</span>
-                    <el-tag v-if="rp.adminComment === '0' " effect="plain" size="mini">管理员</el-tag>
+                    <el-tag v-if="rp.adminComment === 0 " effect="plain" size="mini">管理员</el-tag>
                     <span v-if="rp.parentComment!==null">回复</span>
                     <span v-if="rp.parentComment!=null&&rp.parentComment.id!==parentId"> {{rp.parentComment.nickname}}</span>
                 </a>

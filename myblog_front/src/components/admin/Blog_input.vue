@@ -2,7 +2,7 @@
   <div>
     <!--    面包屑导航区-->
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/theAdminOfMyBlogGh' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/admin' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>撰写博客</el-breadcrumb-item>
     </el-breadcrumb>
     <el-row :gutter="5">
@@ -10,7 +10,7 @@
         <el-input placeholder="请输入文章标题" v-model="blog.title"></el-input>
       </el-col>
       <el-col :span="3">
-        <el-button style="border-radius: 20px" type="danger" @click="submit">发布文章</el-button>
+        <el-button style="border-radius: 20px" type="danger" @click="submit">{{ publishOrUpdate }}</el-button>
       </el-col>
     </el-row>
     <el-row>
@@ -35,14 +35,14 @@
                      @change="setBlogType">
             <el-option v-for="type in typeList" :label="type.name" :value="type.id" :key="type.id"></el-option>
           </el-select>
-          <el-button size="small">+ 新建分类</el-button>
+          <el-button size="small" >+ 新建分类</el-button>
         </el-form-item>
         <el-form-item label="文章标签" prop="tags">
           <el-card shadow="never" style="height: 120px; overflow: auto">
             <el-checkbox-group v-model="publishForm.tags">
               <el-checkbox v-for="tag in tagList" :label="tag.id" :key="tag.id">{{ tag.name }}</el-checkbox>
             </el-checkbox-group>
-            <el-button size="mini">+ 新建标签</el-button>
+            <el-button size="mini" @click="createTagDialogFormVisible = true">+ 新建标签</el-button>
           </el-card>
         </el-form-item>
         <el-form-item label="文章类型" prop="flag">
@@ -58,7 +58,7 @@
         <el-form-item label="文章封面">
           <el-upload
               ref="upload"
-              action="http://localhost:8090/tencentcloud/upload/blog"
+              action="https://ljringh.site/api/tencentcloud/upload/blog"
               list-type="picture-card"
               :limit="1"
               :on-preview="handlePictureCardPreview"
@@ -74,6 +74,18 @@
       <div slot="footer" class="dialog-footer">
         <el-button @click="backPage">取消</el-button>
         <el-button type="primary" @click="publishBlog">发布文章</el-button>
+      </div>
+    </el-dialog>
+    <el-dialog title="分类修改" :visible.sync="createTagDialogFormVisible">
+      <el-form style="text-align: left" ref="createTagFormRef" :model="createTagForm"
+               :rules="createTagFormRules" label-width="80px">
+        <el-form-item label="标签名称" prop="name">
+          <el-input v-model="createTagForm.name"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="backPage">取消</el-button>
+        <el-button tag="primary" @click="createTag">提交</el-button>
       </div>
     </el-dialog>
   </div>
@@ -120,19 +132,61 @@ export default {
           {required: true, message: '请选择文章类型', trigger: 'blur'}
         ],
       },
-      dialogVisible: false
+      dialogVisible: false,
+      publishOrUpdate: '发布文章',
+      createTagDialogFormVisible:false,
+      createTagForm: {
+        name: ''
+      },
+      createTagFormRules: {
+        name: [
+          {required: true, message: '分类名称不能为空', trigger: 'blur'}
+        ],
+      },
+      tag: {
+        id: null,
+        name: '',
+      },
     }
   },
   created() {
-    if (typeof this.$route.query.blog !== 'undefined') {
-      this.blog = JSON.parse(this.$route.query.blog)
+    if (typeof this.$route.query.id !== 'undefined') {
+      this.getBlog(this.$route.query.id)
+      this.publishOrUpdate = '更新文章'
     }
   },
   methods: {
+    // 创建新标签
+    createTag() {
+      this.$refs.createTagFormRef.validate(async valid => {
+        if (!valid) return
+        this.tag.name = this.createTagForm.name
+        // console.log(this.tag)
+        const {data: res} = await this.$blog.post('/theAdminOfMyBlogGh/tag/saveTag', {
+          tag: this.tag
+        })
+        // console.log(res)
+        if (res.code === 200) {
+          this.createTagDialogFormVisible = false
+          this.tag.id = null
+          this.$refs.createTagFormRef.resetFields()
+          await this.getTagList()
+          return this.$message.success(res.message)
+        } else {
+          this.createTagDialogFormVisible = false
+          this.$refs.createTagFormRef.resetFields()
+          return this.$message.error(res.message)
+        }
+      })
+    },
+    async getBlog(id){
+      const {data : res} = await this.$blog.get(`/theAdminOfMyBlogGh/blog/getBlog/${id}`)
+      console.log(res)
+      this.blog = res.data
+    },
     // 获取博客类型列表
     async getTypeList() {
       const {data: res} = await this.$blog.get('/theAdminOfMyBlogGh/type/getAllType')
-      // console.log(res)
       this.typeList = res.data
     },
     // 获取博客标签列表
@@ -181,6 +235,7 @@ export default {
         // console.log(res)
         if (res.code === 200) {
           this.publishDialogFormVisible = false
+          await this.$router.push({path: '/admin/blogs'})
           return this.$message.success('发布博客成功！')
         } else {
           this.publishDialogFormVisible = false

@@ -109,13 +109,13 @@ export default {
         },
       ],
       iconsObj: {
-        '1': 'iconfont icon-menu_home',
-        '2': 'iconfont icon-jilu2',
-        '3': 'iconfont icon-jilu2',
+        '1': 'iconfont icon-shouye',
+        '2': 'iconfont icon-bokeyuan',
+        '3': 'iconfont icon-noun__cc',
         '4': 'iconfont icon-xiangmu1',
         '5': 'iconfont icon-liuyan',
-        '6': 'el-icon-date',
-        '7': 'iconfont icon-gerenzhongxin1',
+        '6': 'iconfont icon-shijianzhouqi',
+        '7': 'iconfont icon-guanyuwomen',
       },
       isCollapse: false,
       menuHiddenVisiable: false,
@@ -193,7 +193,7 @@ export default {
     ,
 // 进入管理界面
     manageBlog() {
-      this.$router.push('/theAdminOfMyBlogGh')
+      this.$router.push('/admin')
     }
     ,
 // 展开菜单栏

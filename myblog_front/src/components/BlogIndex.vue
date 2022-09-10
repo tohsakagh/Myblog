@@ -3,7 +3,7 @@
     <el-container id="index" class="animate__animated animate__fadeInUp">
       <el-row :gutter="12">
         <el-col :xs="24" :sm="17">
-          <el-card style="background-color: rgba(255,255,255,0.9)" class="left-item">
+          <el-card style="background-color: rgba(255,255,255,0.9)" class="left-item" >
             <div slot="header" class="total">
               <div class="title">
                 <i v-if="selected" class="el-icon-back" @click="updateBlogList"></i>
@@ -11,11 +11,11 @@
               </div>
               <span>共 <span style="color: #3a8ee6; font-size: 20px">{{ totalcount }}</span> 篇</span>
             </div>
-            <el-row type="flex" align="middle" style="flex-wrap: wrap" :gutter="20" v-for="blog in blogList"
+            <el-row type="flex" align="middle" style="flex-wrap: wrap; height: 220px" :gutter="20" v-for="blog in blogList"
                     :key="blog.id"
-                    shadow="never" class="animate__animated animate__fadeInUp blog-content ">
+                    shadow="never" class="animate__animated animate__fadeInUp blog-content " s>
               <el-col class="img" :xs="24" :sm="8">
-                <el-image lazy :src="blog.cover"></el-image>
+                <el-image  :src="blog.cover" ></el-image>
               </el-col>
               <el-col :xs="24" :sm="16">
                 <div @click="getBlogInfo(blog.id)" style="user-select: none">
@@ -28,24 +28,14 @@
                     </div>
                   </div>
                   <h3 style="position: absolute;top: 30px">{{ blog.title }}</h3>
-                  <p class="description">{{ blog.content }}</p>
-                  <div class="blog-info">
-                    <div class="user-info" style="position: absolute; bottom: 10px">
-                      <!--                      <el-avatar size="small" :src="blog.user.avatar"></el-avatar>-->
-                      <a href="#" class="header">{{ blog.author }}</a>
-                    </div>
-                    <div class="blog-date" style="position: absolute; bottom: 10px; left: 500px">
+                  <p class="description" style="position: absolute; top: 70px">{{ blog.description }}</p>
+                    <div class="blog-date" style="position: absolute; bottom: 10px; left: 250px">
                       <i class="el-icon-date"></i>
-                      <span>{{ blog.updateTime | dataFormat }}</span>
-                    </div>
-                    <div style="position: absolute; bottom: 10px; left: 600px">
-                      <i class="el-icon-view"></i>
-                      <span>{{ blog.views }}</span>
+                      <span>{{ blog.createTime | dataFormat }}</span>
                     </div>
                     <div class="blog-type" style="position: absolute; bottom: 10px; right: 30px">
                       <el-tag effect="plain">{{ blog.typeName }}</el-tag>
                     </div>
-                  </div>
                 </div>
               </el-col>
             </el-row>
@@ -73,7 +63,7 @@
                   @click="selectType(type.id)"
                   :class="type.id === typeId? 'activeType':''">
                 <div style="display: flex;align-items: center">
-                  <el-image lazy :src="type.picUrl"
+                  <el-image :src="type.picUrl"
                             style="width: 28px;height: 28px; border-radius: 50%; margin-right: 10px"></el-image>
                   {{ type.name }}
                 </div>
@@ -127,7 +117,7 @@
 </template>
 
 <script>
-
+import { marked }from 'marked';
 export default {
   data() {
     return {
@@ -263,13 +253,13 @@ export default {
     // 得到所有的分类
     async getFullTypeList() {
       const {data: res} = await this.$blog.get('/front/type/getAllType')
-      this.typeList = res.data.sort(this.compare('blogs'))
+      this.typeList = res.data
     },
     // 得到所有的标签
     async getFullTagList() {
       const {data: res} = await this.$blog.get('/front/tag/getAllTag')
       // console.log(res.data)
-      this.tagList = res.data.sort(this.compare('blogs'))
+      this.tagList = res.data
     },
     async dealType() {
       if (this.moreType) {
